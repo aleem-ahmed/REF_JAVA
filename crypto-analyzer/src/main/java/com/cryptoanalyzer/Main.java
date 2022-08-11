@@ -1,13 +1,17 @@
 package com.cryptoanalyzer;
+import java.util.Date;
 
 public class Main {
-    int a = 30;
-    long b = 1_234_567_890;
-    float p = 10.99F;
-    char letter = 'A';
-    boolean tf = true;
+    int myInt = 30;
+    long myLong = 1_234_567_890;
+    float myFloat = 10.99F;
+    char myChar = 'A';
+    boolean myBoolean = true;
+    
+    // Date
+    Date myDate = new Date();
 
     public static void main(String[] args) {
-        System.out.println("Hello World!!!");
+        System.out.println("Hello World!");
     }
 }
