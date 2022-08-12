@@ -38,7 +38,8 @@ public final class Main {
 	
 					r.put("executed", true);
 					r.put("status", true);
-					r.put("message", "/api/" + req.params("action"));
+					r.put("message", "/api/:action");
+					r.put("action", req.params("action"));
 	
 					return r;
 				});
