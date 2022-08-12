@@ -14,16 +14,35 @@ public final class Main {
 		/**
 		 * @title Base Route
 		*/
-		get("/api", (req, res) -> {
-			res.type("application/json");
+		path("/api", () -> {
+			/**
+			 * @title Base Route
+			*/
+			get("", (req, res) -> {
+				res.type("application/json");
 
-			JSONObject r = new org.json.JSONObject();
+				JSONObject r = new JSONObject();
 
-			r.put("executed", true);
-			r.put("status", true);
-			r.put("message", "API Live");
+				r.put("executed", true);
+				r.put("status", true);
+				r.put("message", "/api");
 
-			return r;
+				return r;
+			});
+
+			path("/:action", () -> {
+				get("", (req, res) -> {
+					res.type("application/json");
+	
+					JSONObject r = new JSONObject();
+	
+					r.put("executed", true);
+					r.put("status", true);
+					r.put("message", "/api/" + req.params("action"));
+	
+					return r;
+				});
+			});
 		});
 
 		/**
@@ -32,11 +51,11 @@ public final class Main {
 		get("/*", (req, res) -> {
 			res.type("application/json");
 
-			JSONObject r = new org.json.JSONObject();
+			JSONObject r = new JSONObject();
 
 			r.put("executed", true);
 			r.put("status", false);
-			r.put("message", "404 Not Found");
+			r.put("message", "(404) - Not Found");
 
 			return r;
 		});
