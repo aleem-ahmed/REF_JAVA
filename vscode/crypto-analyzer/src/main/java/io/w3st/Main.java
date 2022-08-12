@@ -11,6 +11,9 @@ public final class Main {
 	 * @param args The arguments of the program
 	*/
 	public static void main(String[] args) {
+		/**
+		 * @title Base Route
+		*/
 		get("/api", (req, res) -> {
 			res.type("application/json");
 
@@ -23,6 +26,9 @@ public final class Main {
 			return r;
 		});
 
+		/**
+		 * @title 404
+		*/
 		get("/*", (req, res) -> {
 			res.type("application/json");
 
