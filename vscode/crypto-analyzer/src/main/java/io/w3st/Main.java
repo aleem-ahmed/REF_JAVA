@@ -2,9 +2,9 @@ package io.w3st;
 import static spark.Spark.*;
 
 /**
- * @title App
+ * @title Main
 */
-public final class App {
+public final class Main {
 	/**
 	 * @param args The arguments of the program
 	*/
