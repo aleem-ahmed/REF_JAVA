@@ -1,4 +1,6 @@
 package io.w3st;
+
+import org.json.JSONObject;
 import static spark.Spark.*;
 
 /**
@@ -12,13 +14,25 @@ public final class Main {
 		get("/api", (req, res) -> {
 			res.type("application/json");
 
-			return "{ \"executed\": true, \"status\": true }";
+			JSONObject r = new org.json.JSONObject();
+
+			r.put("executed", true);
+			r.put("status", true);
+			r.put("message", "API Live");
+
+			return r;
 		});
 
 		get("/*", (req, res) -> {
 			res.type("application/json");
 
-			return "{ \"executed\": true, \"status\": false, \"message\":\"Custom 404\" }";
+			JSONObject r = new org.json.JSONObject();
+
+			r.put("executed", true);
+			r.put("status", false);
+			r.put("message", "404 Not Found");
+
+			return r;
 		});
 	}
 }
